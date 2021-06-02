@@ -1,4 +1,4 @@
-#you will need the following library 
+#you will need the following library '
 !pip install ibm_watson wget
 
 from ibm_watson import SpeechToTextV1 
@@ -9,10 +9,13 @@ url_s2t = ""                  #unique URL that you will get after buying speech 
 
 iam_apikey_s2t = ""           #unique key you will get after buying speech to text plan
 
+
+#setting Speech to text converter
+
 authenticator = IAMAuthenticator(iam_apikey_s2t)
 s2t = SpeechToTextV1(authenticator=authenticator)
 s2t.set_service_url(url_s2t)
-#s2t is a speech to taxt adapter object
+#s2t is a speech to text adapter object
 
 #downloading desireed audio file
 !wget -O PolynomialRegressionandPipelines.mp3  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-PY0101EN-SkillsNetwork/labs/Module%205/data/PolynomialRegressionandPipelines.mp3
@@ -34,7 +37,7 @@ recognized_text=response.result['results'][0]["alternatives"][0]["transcript"]
 type(recognized_text)
 
 
-# now for languagee translator
+# now for language translator
 
 from ibm_watson import LanguageTranslatorV3
 url_lt=''
@@ -42,7 +45,8 @@ apikey_lt=''
 
 version_lt='2018-05-01'
 
-#creating a languageTranslator objct
+#setting up language translator api
+#creating a languageTranslator obejct
 authenticator = IAMAuthenticator(apikey_lt)
 language_translator = LanguageTranslatorV3(version=version_lt,authenticator=authenticator)
 language_translator.set_service_url(url_lt)
